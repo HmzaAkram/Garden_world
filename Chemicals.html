@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GardenWorld</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="CSS/Style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <!-- Pages CSS -->
+    <link rel="stylesheet" href="CSS/pages.css">
+    <!-- Font-Awesome Bundle -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        /* Chemicals Start */
+        .c-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .text-content h2 {
+            font-size: 2rem;
+            color: #00660e;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .text-content p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .text-content .btn-primary {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .fertilizer-slider {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .pesticides-slider {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .seeds-slider {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .fertilizer-cards {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            gap: 40px;
+        }
+
+        .pesticides-cards {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            gap: 40px;
+
+        }
+
+        .seeds-cards {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            gap: 40px;
+        }
+
+        .card {
+            flex: 0 0 250px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: left;
+        }
+
+        .card img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #13753cf8;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .f-navigation-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 10px;
+        }
+
+        .p-navigation-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 10px;
+        }
+
+        .s-navigation-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-btn.active {
+            background-color: #0f7e30;
+        }
+
+        /* Responsive Adjustments for Chemicals Section */
+        @media (max-width: 576px) {
+    .fertilizer-cards,
+    .pesticides-cards,
+    .seeds-cards {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+        position: relative;
+    }
+
+    .fertilizer-cards .card,
+    .pesticides-cards .card,
+    .seeds-cards .card {
+        flex: 0 0 100%; /* Each card takes 100% width */
+        display: block;
+        transition: transform 0.3s ease; /* Smooth transition */
+    }
+
+    .fertilizer-cards,
+    .pesticides-cards,
+    .seeds-cards {
+        transform: translateX(0); /* Default position */
+    }
+    .fertilizer-cards {
+        gap: 20px;
+    }
+
+    .pesticides-cards {
+        gap: 20px;
+    }
+
+    .seeds-cards {
+        gap: 20px;
+    }
+    .card img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+    .card {
+        padding: 10px;
+        text-align: left;
+    }
+}
+        
+        /* Chemicals End */
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <div class="logo">
+                    <img src="Images/12.jpg" alt="Logo" class="avatar">
+                    <span>GardenWorld</span>
+                </div>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="main.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="About.html">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTools" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Tools
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownTools">
+                                <li><a class="dropdown-item" href="Tools.html#working-tools">Working Tools</a></li>
+                                <li><a class="dropdown-item" href="Tools.html#decorative-tools">Decorative Tools</a>
+                                </li>
+                                <li><a class="dropdown-item" href="Tools.html#planting-tools">Pots and Plates</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Chemicals
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="Chemicals.html#Fertilizer">Fertilizers</a></li>
+                                <li><a class="dropdown-item" href="Chemicals.html#pesticides">Pesticides</a></li>
+                                <li><a class="dropdown-item" href="Chemicals.html#Seeds">Seeds</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Suggestion.html">Suggestions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact.html">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Navbar End -->
+
+    <!-- Carousel Start -->
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Images/2.jpg" class="d-block w-100" alt="GardenWorld">
+                <div class="carousel-caption">
+                    <h2>Chemicals</h2>
+                    <p>Home | Chemicals</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!--Chemicals Section 1 Start-->
+    <div class="c-container" id="Fertilizer">
+
+        <div class="text-content">
+            <h2>Fertilizers for Gardening</h2>
+            <p>Explore the best fertilizers to enrich your garden and ensure healthy plant growth. Learn about the
+                unique benefits of each type of fertilizer and choose what suits your gardening needs.</p>
+            <a href="https://en.wikipedia.org/wiki/Fertilizer" class="btn btn-primary"
+                style=" background: linear-gradient(90deg, #012024, #034232, #13753cf8);">Learn More</a>
+        </div>
+
+        <section class="fertilizer-slider">
+            <div class="fertilizer-cards">
+                <div class="card">
+                    <img src="Images/compost.jpg" alt="Organic Compost">
+                    <h3>Organic Compost</h3>
+                    <p>Enrich your soil with organic matter to improve plant growth and retain moisture effectively.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/nitrogen.avif" alt="Nitrogen Fertilizer">
+                    <h3>Nitrogen Fertilizer</h3>
+                    <p>Boost leaf and stem growth with nitrogen-based fertilizers for greener, healthier plants.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/phos.webp" alt="Phosphorus Fertilizer">
+                    <h3>Phosphorus Fertilizer</h3>
+                    <p>Enhance root development and flowering with phosphorus-rich fertilizers for a strong garden.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/potass.jpg" alt="Potassium Fertilizer">
+                    <h3>Potassium Fertilizer</h3>
+                    <p>Promote disease resistance and improve overall plant health with potassium fertilizers.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/bonee.jpg" alt="Bone Meal">
+                    <h3>Bone Meal</h3>
+                    <p>Increase phosphorus levels naturally with bone meal for stronger roots and vibrant flowers.</p>
+                </div>
+            </div>
+            <div class="f-navigation-buttons">
+                <div class="nav-btn active" onclick="moveSlide(0)"></div>
+                <div class="nav-btn" onclick="moveSlide(1)"></div>
+                <div class="nav-btn" onclick="moveSlide(2)"></div>
+                <div class="nav-btn" onclick="moveSlide(3)"></div>
+                <div class="nav-btn" onclick="moveSlide(4)"></div>
+            </div>
+        </section>
+    </div>
+    <!--Chemicals Section 1 End-->
+
+    <!--Chemicals Section 2 Start-->
+    <div class="c-container" id="pesticides">
+        <section class="pesticides-slider">
+            <div class="pesticides-cards">
+                <div class="card">
+                    <img src="Images/npc.jpg" alt="Insecticide">
+                    <h3>Insecticide</h3>
+                    <p>Protect your plants from harmful insects with a powerful insecticide formula.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/fungus.jpg" alt="Fungicide">
+                    <h3>Fungicide</h3>
+                    <p>Prevent and treat fungal infections in plants with an effective fungicide solution.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/herbss.jpg" alt="Herbicide">
+                    <h3>Herbicide</h3>
+                    <p>Keep weeds under control and prevent competition for nutrients with a reliable herbicide.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/acar.jpg" alt="Acaricide">
+                    <h3>Acaricide</h3>
+                    <p>Eliminate mites and protect your plants from infestations using acaricides.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/rodent.jpg" alt="Rodenticide">
+                    <h3>Rodenticide</h3>
+                    <p>Prevent rodent damage to your plants and crops with a safe and effective rodenticide.</p>
+                </div>
+            </div>
+            <div class="p-navigation-buttons">
+                <div class="nav-btn active" onclick="moveSlide(0)"></div>
+                <div class="nav-btn" onclick="moveSlide(1)"></div>
+                <div class="nav-btn" onclick="moveSlide(2)"></div>
+                <div class="nav-btn" onclick="moveSlide(3)"></div>
+                <div class="nav-btn" onclick="moveSlide(4)"></div>
+            </div>
+        </section>
+
+        <div class="text-content">
+            <h2>Pesticides for Effective Plant Protection</h2>
+            <p>Explore a range of pesticides to protect your plants from harmful pests and ensure healthy growth.</p>
+            <a href="https://en.wikipedia.org/wiki/Pesticide" class="btn btn-primary"
+                style=" background: linear-gradient(90deg, #012024, #034232, #13753cf8);">Learn More</a>
+        </div>
+    </div>
+    <!--Chemicals Section 2 End-->
+
+    <!--Chemicals Section 3 Start-->
+    <div class="c-container" id="Seeds">
+        <div class="text-content">
+            <h2>Seeds for Your Garden</h2>
+            <p>Explore various types of seeds for a fruitful and blooming garden. Choose the best seeds for your growing
+                conditions.</p>
+            <a href="https://en.wikipedia.org/wiki/List_of_edible_seeds" class="btn btn-primary"
+                style=" background: linear-gradient(90deg, #012024, #034232, #13753cf8);">Learn More</a>
+        </div>
+        <section class="seeds-slider">
+            <div class="seeds-cards">
+                <div class="card">
+                    <img src="Images/tomatao.cms" alt="Tomato Seed">
+                    <h3>Tomato Seed</h3>
+                    <p>Plant tomato seeds for fresh, juicy fruits that are perfect for your garden.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/carrot.jpg" alt="Carrot Seed">
+                    <h3>Carrot Seed</h3>
+                    <p>Grow healthy and crunchy carrots with these easy-to-grow seeds.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/cucumber.jpg" alt="Cucumber Seed">
+                    <h3>Cucumber Seed</h3>
+                    <p>Plant cucumber seeds for crisp and refreshing vegetables that thrive in summer.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/flower.jpg" alt="Flower Seed">
+                    <h3>Flower Seed</h3>
+                    <p>Fill your garden with colorful flowers by planting a variety of flower seeds.</p>
+                </div>
+                <div class="card">
+                    <img src="Images/lettuce.webp" alt="Lettuce Seed">
+                    <h3>Lettuce Seed</h3>
+                    <p>Grow fresh, nutritious lettuce with these high-quality seeds.</p>
+                </div>
+            </div>
+            <div class="s-navigation-buttons">
+                <div class="nav-btn active" onclick="moveSlide(0)"></div>
+                <div class="nav-btn" onclick="moveSlide(1)"></div>
+                <div class="nav-btn" onclick="moveSlide(2)"></div>
+                <div class="nav-btn" onclick="moveSlide(3)"></div>
+                <div class="nav-btn" onclick="moveSlide(4)"></div>
+            </div>
+        </section>
+    </div>
+    <!--Chemicals Section 3 End-->
+
+  <!-- Footer Start -->
+  <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h4>GardenWorld</h4>
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Tools.html">Tools</a></li>
+                    <li><a href="Chemicals.html">Chemicals</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Suggestion.html">Suggestions</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="Suggestion.html#ebooks">E-books</a></li>
+                    <li><a href="Suggestion.html#products">Suggested Products</a></li>
+                    <li><a href="Suggestion.html#tools">Buy Tools</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4>Our Office</h4>
+                <ul>
+                    <li><a href="https://g.co/kgs/9yoGK6m">📌 123 Street, Karachi, Pakistan</a></li>
+                    <li><a href="tel:01234567890">📞 +012 345 67890</a></li>
+                    <li><a href="https://mail.google.com/mail">📩 info.gardenworld@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Cristiano/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/Cristiano?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/cristiano/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/cristiano-ronaldo7?trk=ppro_cprof"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer End -->
+
+    <!-- copyright Start -->
+    <div class="copyright-area">
+        &copy; 2024 <strong>GardenWorld</strong>. All rights reserved. | Designed by M.Afeer Khan
+    </div>
+    <!-- copyright End -->
+
+    <!-- Main JS -->
+    <script src="JS/script.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

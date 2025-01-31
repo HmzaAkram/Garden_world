@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+\]
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GardenWorld</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="CSS/Style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <!-- Pages CSS -->
+    <link rel="stylesheet" href="CSS/pages.css">
+    <!-- Font-Awesome Bundle -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <Style>
+        /* About Sections Start */
+        .div
+        {
+         margin: 0px;
+         padding-top: ;
+        }
+
+        section {
+            padding: 40px 20px;
+            background-color: #fff;
+            margin: 20px auto;
+            max-width: 1100px;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .text-content {
+            flex: 1 1 500px;
+        }
+
+        .text-content h2 {
+            color: #054e38;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .text-content p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* About Sections End */
+
+        /* Team Section Start */
+        .team-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .team-section h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #0c802f;
+        }
+
+        .team-section hr {
+            width: 60px;
+            height: 4px;
+            margin: 10px auto;
+            background-color: #0a9644;
+            border: none;
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #0faa76;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .team-member h3 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: #777;
+            margin: 0 0 10px;
+        }
+
+        .team-member .social-icons {
+            margin-top: 10px;
+        }
+
+        .team-member .social-icons a {
+            color: #08885d;
+            margin: 0 5px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .team-member .social-icons a:hover {
+            color: #08885d;
+        }
+
+        .team-member {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Team Section End */
+    </Style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <div class="logo">
+                    <img src="Images/12.jpg" alt="Logo" class="avatar">
+                    <span>GardenWorld</span>
+                </div>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="main.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="About.html">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTools" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Tools
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownTools">
+                                <li><a class="dropdown-item" href="Tools.html#working-tools">Working Tools</a></li>
+                                <li><a class="dropdown-item" href="Tools.html#decorative-tools">Decorative Tools</a>
+                                </li>
+                                <li><a class="dropdown-item" href="Tools.html#planting-tools">Pots and Plates</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Chemicals
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="Chemicals.html#Fertilizer">Fertilizers</a></li>
+                                <li><a class="dropdown-item" href="Chemicals.html#pesticides">Pesticides</a></li>
+                                <li><a class="dropdown-item" href="Chemicals.html#Seeds">Seeds</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Suggestion.html">Suggestions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact.html">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Navbar End -->
+
+    <!-- Carousel Start -->
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Images/2.jpg" class="d-block w-100" alt="GardenWorld">
+                <div class="carousel-caption">
+                    <h2>About-Us</h2>
+                    <p>Home | About-Us</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- About Us Start -->
+    <section>
+        <div class="text-content">
+            <h2>About this project</h2>
+            <p>
+                Welcome to our gardening website!
+                We are a group of passionate students of Aptech who turned our love for nature and
+                creativity into this project. Our goal is to inspire and empower
+                people to transform their outdoor spaces into green havens.
+                Through this platform, we aim to share our knowledge, ideas, and enthusiasm for gardening, offering
+                helpful tips, services, and resources for plant lovers of all experience levels. Whether you’re starting
+                your first garden or looking to enhance an existing one, we’re here to support your journey toward a
+                greener, more beautiful world.
+            </p>
+        </div>
+        <div style="flex: 1 1 500px;">
+            <img src="Images/apppp.jpg" alt="About Us Image" class="img-fluid" style="margin-left: 0 px;" width="450">
+        </div>
+    </section>
+    <!-- About Us End -->
+    <br><br>
+    <!-- Team Section Start -->
+    <h1 style=" text-align: center;">Meet Our Team</h1>
+    <div class="container"><br><br>
+        <div class="row justify-content-center">
+            <!-- Team Member 1 -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="team-member text-center p-4">
+                    <img src="Images/parker4.webp" alt="">
+                    <h3>M.Afeer Khan</h3>
+                    <p>Leader</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="team-member text-center p-4">
+                    <img src="Images/default2.jpg" alt="">
+                    <h3>team-member 2</h3>
+                    <p></p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="team-member text-center p-4">
+                    <img src="Images/default2.jpg" alt="">
+                    <h3>team-member 3</h3>
+                    <p></p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 4 -->
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="team-member text-center p-4">
+                    <img src="Images/default2.jpg" alt="">
+                    <h3>team-member 4</h3>
+                    <p></p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team Section End -->
+
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>GardenWorld</h4>
+                    <ul>
+                        <li><a href="main.html">Home</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Tools.html">Tools</a></li>
+                        <li><a href="Chemicals.html">Chemicals</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Suggestion.html">Suggestions</a></li>
+                        <li><a href="Contact.html">Contact Us</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="Suggestion.html#ebooks">E-books</a></li>
+                        <li><a href="Suggestion.html#products">Suggested Products</a></li>
+                        <li><a href="Suggestion.html#tools">Buy Tools</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Our Office</h4>
+                    <ul>
+                        <li><a href="https://g.co/kgs/9yoGK6m">📌 123 Street, Karachi, Pakistan</a></li>
+                        <li><a href="tel:01234567890">📞 +012 345 67890</a></li>
+                        <li><a href="https://mail.google.com/mail">📩 info.gardenworld@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Cristiano/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/Cristiano?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/cristiano/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/cristiano-ronaldo7?trk=ppro_cprof"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- copyright Start -->
+    <div class="copyright-area">
+        &copy; 2024 <strong>GardenWorld</strong>. All rights reserved. | Designed by M.Afeer Khan
+    </div>
+    <!-- copyright End -->
+
+    <!-- Main JS -->
+    <script src="JS/script.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

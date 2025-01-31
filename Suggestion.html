@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GardenWorld</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="CSS/Style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <!-- Pages CSS -->
+    <link rel="stylesheet" href="CSS/pages.css">
+    <!-- Font-Awesome Bundle -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        /* Product Section Start */
+        .product-carousel {
+            margin: 60px auto;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .product-carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .item {
+            min-width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+
+        .item-price strike {
+            color: red;
+        }
+
+        .thumb-wrapper {
+            padding: 15px;
+            background: #fff;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+            width: 240px;
+            height: 270px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .thumb-wrapper h4 {
+            color: #0d5a36;
+        }
+
+        .thumb-wrapper:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .img-box {
+            height: 120px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn {
+            color: #0d5a36;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+            background: none;
+            border: 1px solid #0d5a36;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #237041;
+            border-color: #124129;
+            color: #fff;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #0d5a36;
+            border-radius: 4px;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel-control.left {
+            left: 10px;
+        }
+
+        .carousel-control.right {
+            right: 10px;
+        }
+        /* Product Section End */
+
+        /* Product Tools Start */
+        .tools-carousel {
+            margin: 60px auto;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .tools-carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .tools-item {
+            min-width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px;
+        }
+
+        .thumb-wrapper-tools {
+            padding: 15px;
+            background: #fff;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+            width: 240px;
+            height: 270px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .thumb-wrapper-tools h4 {
+            color: #0d5a36;
+        }
+
+        .thumb-wrapper-tools:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .img-box-tools {
+            height: 120px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .img-box-tools img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-tools {
+            color: #0d5a36;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+            background: none;
+            border: 1px solid #0d5a36;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-tools:hover {
+            background-color: #237041;
+            border-color: #124129;
+            color: #fff;
+        }
+
+        .carousel-control-tools {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #0d5a36;
+            border-radius: 4px;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel-control-tools.left {
+            left: 10px;
+        }
+
+        .carousel-control-tools.right {
+            right: 10px;
+        }
+        /* Product Tools End */
+
+        /* E-Books Section Start */
+        .ebooks-carousel {
+            margin: 60px auto;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .ebooks-carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .ebooks-item {
+            min-width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px;
+        }
+
+        .thumb-wrapper-ebooks {
+            padding: 15px;
+            background: #fff;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+            width: 240px;
+            height: 270px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .thumb-wrapper-ebooks h4 {
+            color: #0d5a36;
+            font-size: 16px;
+
+        }
+
+        .thumb-wrapper-ebooks:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .img-box-ebooks {
+            height: 160px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .img-box-ebooks img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-ebooks {
+            color: #0d5a36;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+            background: none;
+            border: 1px solid #0d5a36;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-ebooks a {
+            text-decoration: none;
+            color: #0d5a36;
+
+        }
+
+        .btn-ebooks a:hover {
+            color: #fff;
+
+        }
+
+        .btn-ebooks:hover {
+            background-color: #237041;
+            border-color: #124129;
+            color: #fff;
+        }
+
+        .carousel-control-ebooks {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #0d5a36;
+            border-radius: 4px;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel-control-ebooks.left {
+            left: 10px;
+        }
+
+        .carousel-control-ebooks.right {
+            right: 10px;
+        }
+        /*E-Books Section End */
+    </style>
+</head>
+<body>
+    <!-- Navbar Start -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <div class="logo">
+                    <img src="Images/12.jpg" alt="Logo" class="avatar">
+                    <span>GardenWorld</span>
+                </div>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="main.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="About.html">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTools" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Tools
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownTools">
+                                <li><a class="dropdown-item" href="Tools.html#working-tools">Working Tools</a></li>
+                                <li><a class="dropdown-item" href="Tools.html#decorative-tools">Decorative Tools</a>
+                                </li>
+                                <li><a class="dropdown-item" href="Tools.html#planting-tools">Pots and Plates</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Chemicals
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="Chemicals.html#Fertilizer">Fertilizers</a></li>
+                                <li><a class="dropdown-item" href="Chemicals.html#pesticides">Pesticides</a></li>
+                                <li><a class="dropdown-item" href="Chemicals.html#Seeds">Seeds</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Suggestion.html">Suggestions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact.html">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Navbar End -->
+
+    <!-- Carousel Start -->
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Images/2.jpg" class="d-block w-100" alt="GardenWorld">
+                <div class="carousel-caption">
+                    <h2>Suggested Products </h2>
+                    <p>Home | Suggestion</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+    <br><br>
+    <!-- Product Chemical Section Start -->
+    <div class="container" id="products">
+        <h2 style="text-align: center; color: green; font-weight: bold;">Recommended Chemicals</h2>
+        <div class="product-carousel">
+            <div class="product-carousel-inner" id="productcarouselInner">
+                <!-- Slide 1 -->
+                <div class="item active">
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/potass.jpg" alt="Product 1">
+                        </div>
+                        <h4> Potassium Fertilizer </h4>
+                        <p class="item-price"><strike>$200.00</strike> <b>$169.99</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/nitrogen.avif" alt="Product 2">
+                        </div>
+                        <h4>Nitrogen Fertilizer</h4>
+                        <p class="item-price"><strike>$250.00</strike> <b>$229.99</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/bonee.jpg" alt="Product 3">
+                        </div>
+                        <h4>Bone Meal</h4>
+                        <p class="item-price"><strike>$399.99</strike> <b>$249.99</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/phos.webp" alt="Product 4">
+                        </div>
+                        <h4> Phosphorus</h4>
+                        <p class="item-price"><strike>$289.00</strike> <b>$269.00</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="item active">
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/tomatao.cms" alt="Product 1">
+                        </div>
+                        <h4>Tomatao Seed</h4>
+                        <p class="item-price"><strike>$40.00</strike> <b>$36.00</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/carrot.jpg" alt="Product 2">
+                        </div>
+                        <h4>Carrot Seed</h4>
+                        <p class="item-price"><strike>$25.00</strike> <b>$23.99</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/lettuce.webp" alt="Product 3">
+                        </div>
+                        <h4>Lettuce Seed</h4>
+                        <p class="item-price"><strike>$69.00</strike> <b>$49.00</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/cucumber.jpg" alt="Product 4">
+                        </div>
+                        <h4> Cucumber Seed</h4>
+                        <p class="item-price"><strike>$28.00</strike> <b>$26.00</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="item active">
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/p1.webp" alt="Product 1">
+                        </div>
+                        <h4>Insecticide</h4>
+                        <p class="item-price"><strike>$400.00</strike> <b>$369.00</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/p2.avif" alt="Product 2">
+                        </div>
+                        <h4>Herbicide</h4>
+                        <p class="item-price"><strike>$225.00</strike> <b>$223.99</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/p4.avif" alt="Product 3">
+                        </div>
+                        <h4>Acaricide</h4>
+                        <p class="item-price"><strike>$899.00</strike> <b>$649.00</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="Images/p3.webp" alt="Product 4">
+                        </div>
+                        <h4>Fungicide</h4>
+                        <p class="item-price"><strike>$289.00</strike> <b>$269.00</b></p>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-control left" onclick="moveSlide(-1)">&#10094;</div>
+            <div class="carousel-control right" onclick="moveSlide(1)">&#10095;</div>
+        </div>
+    </div>
+    <!-- Product Chemical Section End -->
+
+    <!-- Product Tools Section Start -->
+    <div class="container" id="tools">
+        <h2 style="text-align: center; color: green; font-weight: bold;">Recommended Tools</h2>
+        <div class="tools-carousel">
+            <div class="tools-carousel-inner" id="toolsCarouselInner">
+                <!-- Slide 1 -->
+                <div class="tools-item">
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/wbarrow1.png" alt="Tool 1">
+                        </div>
+                        <h4>Wheel Barrow</h4>
+                        <p class="item-price"><strike>$40.00</strike> <b>$35.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/hand-trowel-1000x1000-659d687fd6d24_src.webp" alt="Tool 2">
+                        </div>
+                        <h4>Trowel</h4>
+                        <p class="item-price"><strike>$50.00</strike> <b>$45.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/pruner.jpg" alt="Tool 3">
+                        </div>
+                        <h4>Pruners</h4>
+                        <p class="item-price"><strike>$60.00</strike> <b>$55.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/ggloves1.png" alt="Tool 4">
+                        </div>
+                        <h4>Gloves</h4>
+                        <p class="item-price"><strike>$70.00</strike> <b>$65.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="tools-item">
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/plastic.webp" alt="Tool 5">
+                        </div>
+                        <h4>Plastic Pots</h4>
+                        <p class="item-price"><strike>$80.00</strike> <b>$75.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/ceramic.png!w700wp" alt="Tool 6">
+                        </div>
+                        <h4>Ceramic Pot</h4>
+                        <p class="item-price"><strike>$90.00</strike> <b>$85.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/wooden.jpg" alt="Tool 7">
+                        </div>
+                        <h4>Wooden Pot</h4>
+                        <p class="item-price"><strike>$100.00</strike> <b>$95.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/concrete.jpg" alt="Tool 8">
+                        </div>
+                        <h4>Concrete Pot</h4>
+                        <p class="item-price"><strike>$110.00</strike> <b>$105.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="tools-item">
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/terra.webp" alt="Tool 9">
+                        </div>
+                        <h4>Teracota Pot</h4>
+                        <p class="item-price"><strike>$120.00</strike> <b>$115.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/metal.webp" alt="Tool 10">
+                        </div>
+                        <h4>Metal Pot</h4>
+                        <p class="item-price"><strike>$130.00</strike> <b>$125.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/hang2.jpg" alt="Tool 11">
+                        </div>
+                        <h4>Hanging Pot</h4>
+                        <p class="item-price"><strike>$140.00</strike> <b>$135.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/hang3.jpg" alt="Tool 12">
+                        </div>
+                        <h4>Hanging Pot</h4>
+                        <p class="item-price"><strike>$150.00</strike> <b>$145.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="tools-item">
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/small.jpg" alt="Tool 13">
+                        </div>
+                        <h4>Circle Plate</h4>
+                        <p class="item-price"><strike>$160.00</strike> <b>$155.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/medium.jpg" alt="Tool 14">
+                        </div>
+                        <h4>Rectangle Plate</h4>
+                        <p class="item-price"><strike>$170.00</strike> <b>$165.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/large.jpg" alt="Tool 15">
+                        </div>
+                        <h4>Polygonal Plate</h4>
+                        <p class="item-price"><strike>$180.00</strike> <b>$175.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/cplates.jpg" alt="Tool 16">
+                        </div>
+                        <h4>Stylish Plates</h4>
+                        <p class="item-price"><strike>$190.00</strike> <b>$185.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="tools-item">
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/glamp.jpg" alt="Tool 17">
+                        </div>
+                        <h4>Standard Lamp</h4>
+                        <p class="item-price"><strike>$200.00</strike> <b>$195.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/glamp2.jpg" alt="Tool 18">
+                        </div>
+                        <h4>Circular Lamp</h4>
+                        <p class="item-price"><strike>$210.00</strike> <b>$205.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/glamp3.jpg" alt="Tool 19">
+                        </div>
+                        <h4>Stand Lamp</h4>
+                        <p class="item-price"><strike>$220.00</strike> <b>$215.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                    <div class="thumb-wrapper-tools">
+                        <div class="img-box-tools">
+                            <img src="Images/fountain.jpg" alt="Tool 20">
+                        </div>
+                        <h4>Mini Fountain</h4>
+                        <p class="item-price"><strike>$230.00</strike> <b>$225.00</b></p>
+                        <button class="btn-tools">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-control-tools left" onclick="moveSlideTools(-1)">&#10094;</div>
+            <div class="carousel-control-tools right" onclick="moveSlideTools(1)">&#10095;</div>
+        </div>
+    </div>
+    <!-- Product Tools Section End -->
+
+    <!-- Product E-Books Section Start -->
+    <div class="container" id="ebooks">
+        <h2 style="text-align: center; color: green; font-weight: bold;">Featured E-Books</h2>
+        <div class="ebooks-carousel">
+            <div class="ebooks-carousel-inner" id="ebooksCarouselInner">
+                <!-- Slide 1 -->
+                <div class="ebooks-item active">
+                    <div class="thumb-wrapper-ebooks">
+                        <div class="img-box-ebooks">
+                            <img src="Images/b5.jpg" alt="E-book 1">
+                        </div>
+                        <h4>Companion Planting</h4>
+                        <button class="btn-ebooks"><a
+                                href="https://www.kellogggarden.com/Companion-Planting-Guide.pdf">Read Now</a></button>
+                    </div>
+                    <div class="thumb-wrapper-ebooks">
+                        <div class="img-box-ebooks">
+                            <img src="Images/b1.jpg" alt="E-book 2">
+                        </div>
+                        <h4>Suburban Grower</h4>
+                        <button class="btn-ebooks"><a
+                                href="https://www.doc-developpement-durable.org/file/Culture/potagers-jardins/livres&manuels/Gardening%20Basics%20for%20Dummies.pdf">Read
+                                Now </a></button>
+                    </div>
+                    <div class="thumb-wrapper-ebooks">
+                        <div class="img-box-ebooks">
+                            <img src="Images/b6.jpg" alt="E-book 3">
+                        </div>
+                        <h4>Gardening on Budget</h4>
+                        <button class="btn-ebooks"><a
+                                href="https://glasgowfood.net/assets/documents/Garden-eBook-small.pdf"> Read
+                                Now</a></button>
+                    </div>
+                    <div class="thumb-wrapper-ebooks">
+                        <div class="img-box-ebooks">
+                            <img src="Images/b7.jpg" alt="E-book 4">
+                        </div>
+                        <h4>Vege Guide</h4>
+                        <button class="btn-ebooks"><a href="https://www.infobooks.org/pdfview/seed-to-supper-a-beginners-guide-to-low-cost-vegetable-gardening-oregon-food-bank-and-oregon-state-university-extension-service-187/">Read Now</a></button>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="ebooks-item active">
+                    <div class="thumb-wrapper-ebooks">
+                        <div class="img-box-ebooks">
+                            <img src="Images/b3.webp" alt="E-book 1">
+                        </div>
+                        <h4>Vertical Gardening</h4>
+                        <button class="btn-ebooks"><a href="https://www.infobooks.org/pdfview/seed-to-supper-a-beginners-guide-to-low-cost-vegetable-gardening-oregon-food-bank-and-oregon-state-university-extension-service-187/">Read Now</a></button>
+                    </div>
+                    <div class="thumb-wrapper-ebooks">
+                        <div class="img-box-ebooks">
+                            <img src="Images/b8.jpg" alt="E-book 2">
+                        </div>
+                        <h4> Small Space Garden</h4>
+                        <button class="btn-ebooks"><a href="https://www.infobooks.org/pdfview/sustainable-home-gardening-training-course-guide-pvl-bharathi-187/"> Read Now</a></button>
+                    </div>
+                    <div class="thumb-wrapper-ebooks">
+                        <div class="img-box-ebooks">
+                            <img src="Images/b2.jpg" alt="E-book 3">
+                        </div>
+                        <h4>Garden Right Away</h4>
+                        <button class="btn-ebooks"><a href="https://www.infobooks.org/pdfview/master-gardeners-manual-oklahoma-cooperative-extension-service-187/">Read Now</a></button>
+                    </div>
+                    <div class="thumb-wrapper-ebooks">
+                        <div class="img-box-ebooks">
+                            <img src="Images/b9.webp" alt="E-book 4">
+                        </div>
+                        <h4> Green Budget</h4>
+                        <button class="btn-ebooks"><a href="https://www.infobooks.org/pdfview/a-vegetable-garden-for-all-fao-187/">Read Now</a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-control-ebooks left" onclick="moveSlideEbooks(-1)">&#10094;</div>
+            <div class="carousel-control-ebooks right" onclick="moveSlideEbooks(1)">&#10095;</div>
+        </div>
+    </div>
+    <!-- Product E-Books Section End -->
+
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>GardenWorld</h4>
+                    <ul>
+                        <li><a href="main.html">Home</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Tools.html">Tools</a></li>
+                        <li><a href="Chemicals.html">Chemicals</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Suggestion.html">Suggestions</a></li>
+                        <li><a href="Contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="Suggestion.html#ebooks">E-books</a></li>
+                        <li><a href="Suggestion.html#products">Suggested Products</a></li>
+                        <li><a href="Suggestion.html#tools">Buy Tools</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Our Office</h4>
+                    <ul>
+                        <li><a href="https://g.co/kgs/9yoGK6m">📌 123 Street, Karachi, Pakistan</a></li>
+                        <li><a href="tel:01234567890">📞 +012 345 67890</a></li>
+                        <li><a href="https://mail.google.com/mail">📩 info.gardenworld@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Cristiano/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/Cristiano?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/cristiano/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/cristiano-ronaldo7?trk=ppro_cprof"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- copyright Start -->
+    <div class="copyright-area">
+        &copy; 2024 <strong>GardenWorld</strong>. All rights reserved. | Designed by M.Afeer Khan
+    </div>
+    <!-- copyright End -->
+
+    <!-- Custom JS -->
+    <script>
+        let productIndex = 0;
+
+        function moveSlide(step) {
+            const carouselInner = document.getElementById("productcarouselInner");
+            const totalItems = carouselInner.children.length;
+            productIndex = (productIndex + step + totalItems) % totalItems;
+            carouselInner.style.transform = "translateX(" + (-productIndex * 100) + "%)";
+        }
+
+        let ebooksIndex = 0;
+
+        function moveSlideEbooks(step) {
+            const ebooksCarouselInner = document.getElementById("ebooksCarouselInner");
+            const totalItemsEbooks = ebooksCarouselInner.children.length;
+            ebooksIndex = (ebooksIndex + step + totalItemsEbooks) % totalItemsEbooks;
+            ebooksCarouselInner.style.transform = "translateX(" + (-ebooksIndex * 100) + "%)";
+        }
+
+        let toolsIndex = 0;
+
+        function moveSlideTools(step) {
+            const toolsCarouselInner = document.getElementById("toolsCarouselInner");
+            const totalItemsTools = toolsCarouselInner.children.length;
+            toolsIndex = (toolsIndex + step + totalItemsTools) % totalItemsTools;
+            toolsCarouselInner.style.transform = "translateX(" + (-toolsIndex * 100) + "%)";
+        }
+    </script>
+    <!-- Main JS -->
+    <script src="JS/script.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

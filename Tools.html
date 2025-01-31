@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GardenWorld</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="CSS/Style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <!-- Pages CSS -->
+    <link rel="stylesheet" href="CSS/pages.css">
+    <!-- Font-Awesome Bundle -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <Style>
+        /* Tools Start */
+        .filter-buttons {
+            margin: 1rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .filter-buttons button {
+            border-radius: 25px;
+            transition: 0.3s;
+            background: linear-gradient(90deg, #012024, #034232, #13753cf8);
+            color: #ffffff;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            min-width: 120px;
+        }
+
+        .filter-buttons button.active,
+        .filter-buttons button:hover {
+            background: linear-gradient(0deg, rgb(15, 61, 34), #22b55f, #b4ffd2f8);
+            color: rgb(0, 0, 0);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-body h5 {
+            font-size: 1.2rem;
+            color: #034228;
+        }
+
+        .d-none {
+            display: none !important;
+        }
+
+        .section-header {
+            color: #156443;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            padding: 0 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Start -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <div class="logo">
+                    <img src="Images/12.jpg" alt="Logo" class="avatar">
+                    <span>GardenWorld</span>
+                </div>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="main.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="About.html">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownTools" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Tools
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownTools">
+                                <li><a class="dropdown-item" href="Tools.html#working-tools">Working Tools</a></li>
+                                <li><a class="dropdown-item" href="Tools.html#decorative-tools">Decorative Tools</a>
+                                </li>
+                                <li><a class="dropdown-item" href="Tools.html#planting-tools">Pots and Plates</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Chemicals
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="Chemicals.html#Fertilizer">Fertilizers</a></li>
+                                <li><a class="dropdown-item" href="Chemicals.html#pesticides">Pesticides</a></li>
+                                <li><a class="dropdown-item" href="Chemicals.html#Seeds">Seeds</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Suggestion.html">Suggestions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact.html">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Navbar End -->
+
+    <!-- Carousel Start -->
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Images/2.jpg" class="d-block w-100" alt="">
+                <div class="carousel-caption">
+                    <h2>Tools</h2>
+                    <p>Home | Tools</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Working Section Start -->
+    <section class="tool-section" id="working-tools">
+        <header class="text-center my-5">
+            <h1 class="display-5 section-header">Working Tools</h1>
+        </header>
+        <section class="filter-buttons text-center">
+            <button class="btn btn-primary filter-button active mx-2" data-filter="all" aria-label="Filter All Tools">All</button>
+            <button class="btn btn-primary filter-button mx-2" data-filter="cutting" aria-label="Filter Cutting Tools">Cutting Tools</button>
+            <button class="btn btn-primary filter-button mx-2" data-filter="watering" aria-label="Filter Watering Tools">Maintenance Tools</button>
+            <button class="btn btn-primary filter-button mx-2" data-filter="digging" aria-label="Filter Digging Tools">Digging Tools</button>
+        </section>
+        <section class="tool-cards container">
+            <div class="row gy-4">
+                <!-- Working Tools Card 1 -->
+                <div class="col-md-4 card-container" data-category="digging">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/rake.jpg">
+                            <div class="overlay">
+                                <div class="overlay-text"> Perfect for leveling soil, collecting leaves, and smoothing out garden beds.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Rake</h5>
+                            <a href="https://youtu.be/gHkR-8K3qRw?si=dwPxAy4XH4kvJZcl" target="_blank" class="btn btn-success mt-2">How to Use</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Working Tools Card 2 -->
+                <div class="col-md-4 card-container" data-category="watering">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/selecting-the-perfect-watering-can-for-garden-plant-care.webp">
+                            <div class="overlay">
+                                <div class="overlay-text">Ideal for watering plants with precision.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Watering Can</h5>
+                            <a href="https://youtu.be/8j4QTK1qkzg?si=3UMhqRO62fwwu7fb" target="_blank" class="btn btn-success mt-2">How to Use</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Working Tools Card 3 -->
+                <div class="col-md-4 card-container" data-category="digging">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/hand-trowel-1000x1000-659d687fd6d24_src.webp" alt="" loading="lazy">
+                            <div class="overlay">
+                                <div class="overlay-text">Great for planting and digging small holes.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Hand Trowel</h5>
+                            <a href="https://youtu.be/0LmUY77lI_0?si=qQy3rHPKmmABMXm3" target="_blank" class="btn btn-success mt-2">How to Use</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Working Tools Card 4 -->
+                <div class="col-md-4 card-container" data-category="watering">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/ggloves1.png">
+                            <div class="overlay">
+                                <div class="overlay-text">Shield hands from dirt, cuts, and blisters.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Gardening Gloves</h5>
+                            <a href="https://youtu.be/8j4QTK1qkzg?si=3UMhqRO62fwwu7fb" target="_blank" class="btn btn-success mt-2">How to Use</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Working Tools Card 5 -->
+                <div class="col-md-4 card-container" data-category="watering">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/wbarrow1.png">
+                            <div class="overlay">
+                                <div class="overlay-text">Ideal to transport soil, plants, tools, and other materials around the garden.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Wheel Barrow</h5>
+                            <a href="https://youtu.be/ICh0qEUnm44?si=fMN9CMiUXk8jYptS" target="_blank" class="btn btn-success mt-2">How to Use</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Working Tools Card 6 -->
+                <div class="col-md-4 card-container" data-category="cutting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/pruner.jpg">
+                            <div class="overlay">
+                                <div class="overlay-text">Best for trimming, pruning, and shaping plants.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Pruners</h5>
+                            <a href="https://youtu.be/hOFxCmF-7D0?si=28PuLVZ45eEEfkie" target="_blank" class="btn btn-success mt-2">How to Use</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Working Tools Card 7 -->
+                <div class="col-md-4 card-container" data-category="cutting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/sheer.jpg">
+                            <div class="overlay">
+                                <div class="overlay-text">Best for trimming shrubs, bushes, and hedges.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Garden Sheer</h5>
+                            <a href="https://youtu.be/4fY7XNNlONk?si=Qx0Dt2lqRRBHFibb" target="_blank" class="btn btn-success mt-2">How to Use</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Working Tools Card 8 -->
+                <div class="col-md-4 card-container" data-category="digging">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/hole digger.webp">
+                            <div class="overlay">
+                                <div class="overlay-text">Used for digging deep, narrow holes for posts or similar tasks
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Post Hole Digger</h5>
+                            <a href="https://youtu.be/Qg-D4RB_7O4?si=shzWUMd4Cp5yc632" target="_blank" class="btn btn-success mt-2">How to Use</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Working Tools Card 9 -->
+                <div class="col-md-4 card-container" data-category="digging">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/hoe.jpg">
+                            <div class="overlay">
+                                <div class="overlay-text"> Best for cultivating soil, breaking up weeds, and creating planting furrows</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Garden Hoe</h5>
+                            <a href="https://youtu.be/UHaKaB28GCY?si=lhkH83dtRun-wnh_" target="_blank" class="btn btn-success mt-2">How to Use</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- Working Section End -->
+
+    <!-- Decorative Section Start -->
+    <section class="tool-section" id="decorative-tools">
+        <header class="text-center my-5">
+            <h1 class="display-5 section-header">Decorative Tools</h1>
+        </header>
+        <section class="filter-buttons text-center">
+            <button class="btn btn-primary filter-button active mx-2" data-filter="all">All</button>
+            <button class="btn btn-primary filter-button mx-2" data-filter="cutting">Accessories</button>
+            <button class="btn btn-primary filter-button mx-2" data-filter="watering">Garden Toys</button>
+            <button class="btn btn-primary filter-button mx-2" data-filter="decorative">Garden lighting</button>
+        </section>
+        <section class="tool-cards container">
+            <div class="row gy-4">
+                <!-- Decorative Tools Card 1 -->
+                <div class="col-md-4 card-container" data-category="decorative">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/glamp.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Adds aesthetic lighting to your garden.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Standard Lamp</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Tools Card 2 -->
+                <div class="col-md-4 card-container" data-category="cutting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/stakes.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Adds to visual interest to flower beds or garden paths.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Garden Stakes</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Tools Card 3 -->
+                <div class="col-md-4 card-container" data-category="decorative">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/glamp2.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Adds aesthetic lighting to your garden.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Round Lamp</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Tools Card 4 -->
+                <div class="col-md-4 card-container" data-category="watering">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/t2.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Gives aesthetic effect .</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Mini Garden Worker </h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Tools Card 5 -->
+                <div class="col-md-4 card-container" data-category="cutting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/pebble.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Creates a soothing walking effect.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Decor Pebbles</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Tools Card 6 -->
+                <div class="col-md-4 card-container" data-category="cutting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/fountain.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Creates a soothing atmosphere with efficient water use.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Mini Fountain</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Tools Card 7 -->
+                <div class="col-md-4 card-container" data-category="watering">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/t1.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Gives cozy vibes to your plants.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Mini House </h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Tools Card 8 -->
+                <div class="col-md-4 card-container" data-category="decorative">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/glamp3.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Adds aesthetic lighting to your garden.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Stand Lamp</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Tools Card 9 -->
+                <div class="col-md-4 card-container" data-category="cutting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/peb2.webp" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Gives vibrant touch to your pathways.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Glowing Pebbles</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Tools Card 9 -->
+                <div class="col-md-4 card-container" data-category="watering">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/t4.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Makes your garden look interesting.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Mini Ducks </h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- Decorative Section End -->
+
+    <!-- Storage Section Start -->
+    <section class="tool-section" id="planting-tools">
+        <header class="text-center my-5">
+            <h1 class="display-5 section-header">Pots and Plates</h1>
+        </header>
+        <section class="filter-buttons text-center">
+            <button class="btn btn-primary filter-button active mx-2" data-filter="all">All</button>
+            <button class="btn btn-primary filter-button mx-2" data-filter="planting">Standard Pots</button>
+            <button class="btn btn-primary filter-button mx-2" data-filter="digging">Plates</button>
+            <button class="btn btn-primary filter-button mx-2" data-filter="watering">Hanging Pots</button>
+        </section>
+        <section class="tool-cards container">
+            <div class="row gy-4">
+                <!-- Storage Toold Card 1 -->
+                <div class="col-md-4 card-container" data-category="planting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/plastic.webp" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Lightweight and affordable, easy to move and maintain and
+                                    they hold moisture well, making plastic pot suitable for plants that need consistent
+                                    watering.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Plastic Pots</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 2 -->
+                <div class="col-md-4 card-container" data-category="planting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/ceramic.png!w700wp" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Good at retaining moisture, making them great for plants that
+                                    require a more humid environment. While heavier than plastic, their aesthetic appeal
+                                    makes them ideal for both indoor and outdoor use.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Ceramic Pots</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 3 -->
+                <div class="col-md-4 card-container" data-category="planting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/wooden.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">Wood is breathable, which helps prevent root rot, but they
+                                    require proper sealing to protect against weather damage when used outdoors.</div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Wooden Pots</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 4 -->
+                <div class="col-md-4 card-container" data-category="planting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/terra.webp" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">These pots are classic and highly breathable, allowing for
+                                    good air circulation around the roots. They're ideal for plants that prefer
+                                    well-drained soil and need to be kept on the drier side, such as succulents and
+                                    cacti. </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Terracota Pots</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 5 -->
+                <div class="col-md-4 card-container" data-category="digging">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/cplates.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text"> Ceramic plant plates, known for their durability and elegance,
+                                    add a decorative touch while effectively protecting surfaces from water damage.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Ceramic Plate</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 6 -->
+                <div class="col-md-4 card-container" data-category="planting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/concrete.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">heavy and sturdy, providing excellent insulation for plants,
+                                    protecting them from temperature fluctuations.
+                                    These pots are perfect for larger plants or trees that need stability and for
+                                    outdoor permanent fixture.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Concrete Pots</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 7 -->
+                <div class="col-md-4 card-container" data-category="watering">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/hang2.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">attached to walls, these hanging pots are great for vertical
+                                    gardening. They are perfect for herbs, succulents, or small flowering plants,
+                                    making them an excellent choice for compact spaces such as balconies or patios.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Wall Mounted Pots</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 8 -->
+                <div class="col-md-4 card-container" data-category="planting">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/metal.webp" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">highly resistant to breakage and pests, making them ideal for outdoor use.
+                                    Their ability to retain heat can benefit plants that thrive in warm soil, especially
+                                    in cooler climates.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Metal Pots</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 9 -->
+                <div class="col-md-4 card-container" data-category="digging">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/small.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text"> Circular plant plates are perfect for balancing aesthetics and functionality,
+                                    ideal for holding round pots and catching excess water to prevent spillage.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Circular Plate</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 10 -->
+                <div class="col-md-4 card-container" data-category="watering">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/hangg.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">These pots are suspended using decorative macramé knots made from ropes or cords.
+                                    They are ideal for adding a bohemian or rustic charm to indoor and outdoor spaces.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title"> Macramé Hanging Pots </h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 11 -->
+                <div class="col-md-4 card-container" data-category="digging">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/medium.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text"> Rectangular plant plates work best with rectangular pots or multi-plant arrangements,
+                                    offering a sleek and space-efficient solution for modern gardens and indoor setups.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Rectangular Plate</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Storage Toold Card 12 -->
+                <div class="col-md-4 card-container" data-category="watering">
+                    <div class="card h-100">
+                        <div class="image-container">
+                            <img src="Images/hang3.jpg" class="card-img-top">
+                            <div class="overlay">
+                                <div class="overlay-text">They are often lined to hold soil and are ideal for colorful
+                                    flowers like petunias, geraniums, or ivy.
+                                    These pots enhance garden aesthetics by adding height and depth to your plant
+                                    arrangements.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Metal Frame Hanging</h5>
+                            <a href="Suggestion.html#tools" target="_blank" class="btn btn-success mt-2">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </section>
+    <!-- Storage Section End -->
+    <br><br>
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>GardenWorld</h4>
+                    <ul>
+                        <li><a href="main.html">Home</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Tools.html">Tools</a></li>
+                        <li><a href="Chemicals.html">Chemicals</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Suggestion.html">Suggestions</a></li>
+                        <li><a href="Contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="Suggestion.html#ebooks">E-books</a></li>
+                        <li><a href="Suggestion.html#products">Suggested Products</a></li>
+                        <li><a href="Suggestion.html#tools">Buy Tools</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Our Office</h4>
+                    <ul>
+                        <li><a href="https://g.co/kgs/9yoGK6m">📌 123 Street, Karachi, Pakistan</a></li>
+                        <li><a href="tel:01234567890">📞 +012 345 67890</a></li>
+                        <li><a href="https://mail.google.com/mail">📩 info.gardenworld@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Cristiano/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/Cristiano?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/cristiano/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/cristiano-ronaldo7?trk=ppro_cprof"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- copyright Start -->
+    <div class="copyright-area">
+        &copy; 2024 <strong>GardenWorld</strong>. All rights reserved. | Designed by M.Afeer Khan
+    </div>
+    <!-- copyright End -->
+
+    <script>
+        // Tools Start
+        document.querySelectorAll('.tool-section').forEach(section => {
+            section.querySelectorAll('.filter-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    section.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+
+                    button.classList.add('active');
+
+                    const filter = button.getAttribute('data-filter');
+
+                    section.querySelectorAll('.card-container').forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.classList.remove('d-none');
+                        } else {
+                            card.classList.add('d-none');
+                        }
+                    });
+                });
+            });
+        });
+        // Tools End
+    </script>
+    <!-- Main JS -->
+    <script src="JS/script.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

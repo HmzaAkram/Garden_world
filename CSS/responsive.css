@@ -1,0 +1,306 @@
+        /* Navbar Start */
+        @media (max-width: 480px) {
+            .logo span {
+                font-size: 14px;
+            }
+
+            .logo .avatar {
+                width: 30px;
+                height: 30px;
+            }
+
+            .nav-link {
+                font-size: 14px;
+            }
+
+            .dropdown-menu {
+                background-color: transparent;
+            }
+
+            .navbar-toggler {
+                font-size: 24px;
+            }
+
+            .navbar-collapse {
+                width: 200px;
+            }
+        }
+        /* Navbar End */
+
+        /* Carousel Start */
+        @media (max-width: 480px) {
+            .carousel-item img {
+                height: 300px;
+            }
+
+            .carousel-caption {
+                top: 40%;
+            }
+
+            .carousel-caption h2 {
+                font-size: 28px !important;
+            }
+
+            .carousel-caption p {
+                font-size: 10px;
+            }
+
+            .carousel-caption button {
+                font-size: 9px;
+                padding: 6px 12px;
+                position: relative;
+                bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) and (min-width: 481px) {
+            .carousel-item img {
+                height: 400px;
+            }
+
+            .carousel-caption h2 {
+                font-size: 40px !important;
+            }
+
+            .carousel-caption p {
+                font-size: 10px;
+            }
+
+            .carousel-caption button {
+                font-size: 14px;
+                padding: 8px 22px;
+
+            }
+
+            .carousel-caption {
+                top: 45%;
+            }
+
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .carousel-item img {
+                height: 500px;
+            }
+
+            .carousel-caption h2 {
+                font-size: 60px;
+            }
+
+            .carousel-caption p {
+                font-size: 18px;
+            }
+
+            .carousel-caption button {
+                font-size: 16px;
+                padding: 8px 25px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .carousel-item img {
+                height: 570px;
+            }
+
+            .carousel-caption h2 {
+                font-size: 80px;
+            }
+
+            .carousel-caption p {
+                font-size: 22px;
+            }
+
+            .carousel-caption button {
+                font-size: 16px;
+                padding: 8px px;
+            }
+        }
+        /* Carousel End */
+
+        /* Top Feature Start */
+        @media (max-width: 480px) {
+            .feature-card {
+                flex: 1 1 calc(100% - 15px);
+                max-width: calc(100% - 15px);
+                bottom: 200px;
+                position: relative;
+            }
+
+            .feature-icon {
+                font-size: 35px;
+            }
+
+            .feature-card h4 {
+                font-size: 16px;
+            }
+
+            .feature-card span {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .feature-card {
+                flex: 1 1 calc(100% - 10px);
+                max-width: calc(100% - 10px);
+                bottom: 100px;
+                position: relative;
+            }
+
+            .top-feature .row {
+                justify-content: space-evenly;
+            }
+
+            .feature-icon {
+                font-size: 35px;
+            }
+
+            .feature-card h4 {
+                font-size: 16px;
+            }
+
+            .feature-card span {
+                font-size: 13px;
+            }
+
+            .feature-card {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+
+        }
+        /* Top Feature End */
+
+        /* Facts Start */
+        @media (max-width: 1024px) {
+            .facts-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .facts-section p {
+                font-size: 1rem;
+            }
+
+            .facts-section .row {
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+
+            .facts-section .col-6 {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .facts-section h1 {
+                font-size: 1.8rem;
+                margin-top: -15px;
+            }
+
+            .facts-section p {
+                font-size: 0.9rem;
+            }
+
+            .facts-section .row {
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+
+            .facts-section .col-6 {
+                padding-left: 0px;
+                padding-right: 1px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .facts-section h1 {
+                font-size: 1.4rem;
+                margin-top: -15px;
+            }
+
+            .facts-section p {
+                font-size: 0.9rem;
+            }
+
+            .facts-section .row {
+                margin-left: -10;
+                margin-right: -10;
+            }
+
+            .facts-section .col-6 {
+                padding-left: -2px;
+                padding-right: -2px;
+            }
+        }
+        /* Facts End */
+
+        /* Product Section Start */
+        @media (max-width: 1200px) {
+            .item .thumb-wrapper {
+                flex: 0 0 calc(33.33% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .item .thumb-wrapper {
+                flex: 0 0 calc(50% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .item .thumb-wrapper {
+                flex: 0 0 100%;
+                margin: 10px 0;
+            }
+        }
+        /* Product Section End */
+
+        /* Product Tools Section Start */
+        @media (max-width: 1200px) {
+            .tools-item .thumb-wrapper-tools {
+                flex: 0 0 calc(33.33% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tools-item .thumb-wrapper-tools {
+                flex: 0 0 calc(50% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tools-item .thumb-wrapper-tools {
+                flex: 0 0 100%;
+                margin: 10px 0;
+            }
+        }
+        /* Product Tools Section End */
+
+        /* Products E-Books Section Start */
+        @media (max-width: 1200px) {
+            .ebooks-item .thumb-wrapper-ebooks {
+                flex: 0 0 calc(33.33% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ebooks-item .thumb-wrapper-ebooks {
+                flex: 0 0 calc(50% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ebooks-item .thumb-wrapper-ebooks {
+                flex: 0 0 100%;
+                margin: 10px 0;
+            }
+        }
+        /* Products E-Books Section End */
